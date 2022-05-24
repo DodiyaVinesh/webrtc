@@ -7,6 +7,7 @@ var io = require("socket.io")(server, {
 
 io.on("connection", (client) => {
   client.on("send-message", (payload) => {
+    console.log(payload);
     client.broadcast.emit("message", payload);
   });
 });
