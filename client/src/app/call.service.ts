@@ -106,18 +106,16 @@ export class CallService {
       video: true,
       audio: true,
     });
+    stream.getTracks().forEach((track) => {
+      this.connection.addTrack(track, stream);
+    });
+
     const remoteStream = new MediaStream();
-
     remoteVideo.nativeElement.srcObject = remoteStream;
-
     this.connection.ontrack = (event) => {
       event.streams[0].getTracks().forEach((track) => {
         remoteStream.addTrack(track);
       });
     };
-
-    stream.getTracks().forEach((track) => {
-      this.connection.addTrack(track, stream);
-    });
   }
 }

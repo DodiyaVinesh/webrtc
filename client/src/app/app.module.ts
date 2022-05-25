@@ -8,7 +8,7 @@ import { SocketIoModule } from 'ngx-socket-io';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    SocketIoModule.forRoot({ url: 'http://localhost:4200' }),
+    SocketIoModule.forRoot({ url: 'http://localhost:3000' }),
   ],
   providers: [],
   bootstrap: [AppComponent],
